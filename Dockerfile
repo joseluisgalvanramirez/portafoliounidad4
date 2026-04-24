@@ -1,3 +1,5 @@
-FROM pierrezemb/gostatic
-COPY . /srv/http/
-CMD ["-port","8080","-https-promote", "-enable-logging"]
+FROM tomcat:12-jdk17-corretto
+RUN rm -rf /usr/local/tomcat/webapps/ROOT
+COPY . /usr/local/tomcat/webapps/ROOT/
+EXPOSE 8080
+CMD ["catalina.sh", "run"]

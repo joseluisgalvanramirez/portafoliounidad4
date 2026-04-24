@@ -1,4 +1,4 @@
-FROM tomcat:12-jdk17-corretto
+FROM tomcat:10-jdk17-corretto
 RUN rm -rf /usr/local/tomcat/webapps/ROOT
 COPY . /usr/local/tomcat/webapps/ROOT/
 EXPOSE 8080

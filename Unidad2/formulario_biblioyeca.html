@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulario de Registro de Libros</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    margin:0;
+    padding:0;
+}
+
+.container{
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    width:400px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    margin-top:50px;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-top:10px;
+}
+
+input, select{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    background:#2a5298;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1e3c72;
+}
+</style>
+</head>
+
+<body>
+
+<center>
+<div class="container">
+<h2>Registro de Libro</h2>
+
+<form action="#" method="post">
+
+<label>Nombre del Libro:</label>
+<input type="text" name="nombre" required>
+
+<label>Autor o Autores:</label>
+<input type="text" name="autor" required>
+
+<label>Editorial:</label>
+<input type="text" name="editorial" required>
+
+<label>Año de Publicación:</label>
+<select name="anio" required>
+    <option value="">Seleccione un año</option>
+    <option>2021</option>
+    <option>2022</option>
+    <option>2023</option>
+    <option>2024</option>
+    <option>2025</option>
+    <option>2026</option>
+</select>
+
+<label>País:</label>
+<select name="pais" required>
+    <option value="">Seleccione un país</option>
+    <option>México</option>
+    <option>España</option>
+    <option>Cuba</option>
+</select>
+
+<label>Número de Páginas:</label>
+<input type="number" name="paginas" min="1" required>
+
+<label>Precio (mínimo $100 MXN):</label>
+<input type="number" name="precio" min="100" step="0.01" required>
+
+<label>Edición:</label>
+<input type="text" name="edicion" required>
+
+<label>ISBN (Formato ISBN-13):</label>
+<input type="text" name="isbn"
+       pattern="^(97(8|9))?\d{9}(\d|X)$"
+       title="Ingrese un ISBN válido (13 dígitos numéricos)"
+       required>
+
+<button type="submit">Registrar Libro</button>
+
+</form>
+</div>
+<a href="../index.html">Regresar</a><br>
+</center>
+
+</body>
+</html>

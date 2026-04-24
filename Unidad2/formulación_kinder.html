@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Formulario Kinder</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f31414;
+}
+.container{
+    width:420px;
+    background:#fff;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 0 8px rgba(0,0,0,0.1);
+}
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:10px;
+}
+input, select, textarea{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+textarea{
+    resize:none;
+}
+input[type="submit"]{
+    margin-top:20px;
+    width:100%;
+    padding:10px;
+    background:#2c3e50;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+</style>
+</head>
+
+<body>
+<center>
+<div class="container">
+<h2>Registro de Niño al Kinder</h2>
+
+<label>Nombre del niño</label>
+<input type="text" required>
+
+<label>Género</label>
+<select required>
+    <option value="">Seleccione</option>
+    <option>Masculino</option>
+    <option>Femenino</option>
+</select>
+
+<label>Edad</label>
+<input type="number" min="3" max="6" required>
+
+<label>Fecha de nacimiento</label>
+<input type="date" required>
+
+<label>Nombre del padre</label>
+<input type="text" required>
+
+<label>Nombre de la madre</label>
+<input type="text" required>
+
+<label>Domicilio (Nayarit)</label>
+<select required>
+    <option value="">Selecciona un municipio</option>
+    <option>Tepic</option>
+    <option>Xalisco</option>
+    <option>Bahía de Banderas</option>
+    <option>Santiago Ixcuintla</option>
+    <option>Acaponeta</option>
+    <option>Ahuacatlán</option>
+    <option>Amatlán de Cañas</option>
+    <option>Compostela</option>
+    <option>Huajicori</option>
+    <option>Ixtlán del Río</option>
+    <option>Jala</option>
+    <option>La Yesca</option>
+    <option>Rosamorada</option>
+    <option>Ruíz</option>
+    <option>San Blas</option>
+    <option>San Pedro Lagunillas</option>
+    <option>Santa María del Oro</option>
+    <option>Tecuala</option>
+    <option>Tuxpan</option>
+</select>
+
+
+<label>Teléfono</label>
+<input type="tel" required>
+
+<label>Celular</label>
+<input type="tel" required>
+
+<label>Correo</label>
+<input type="email" required>
+
+<label>Consideraciones</label>
+<textarea rows="3"></textarea>
+
+<input type="submit" value="Registrar">
+</div>
+<a href="../index.html">Regresar</a><br>
+</center>
+</body>
+</html>

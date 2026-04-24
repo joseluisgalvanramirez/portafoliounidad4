@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Unidad 2 - Integración de APIs</title>
+    <link rel="stylesheet" href="examen-u2.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ===== HEADER DEL PROGRAMADOR ===== */
+        .developer-header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .developer-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+.developer-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-image: url('img/123.jpeg'); /* ← Ruta correcta desde Unidad2 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.developer-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border-color: #ffd700;
+}
+        .developer-details {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .developer-name {
+            font-size: 28px;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .developer-title {
+            color: #4a5568;
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .developer-meta {
+            color: #718096;
+            font-size: 15px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .developer-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* ===== TÍTULOS ===== */
+        .main-title {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            font-weight: 800;
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 22px;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        /* ===== GRID DE APIS ===== */
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin: 50px 0;
+        }
+
+        .api-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .api-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .api-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: transform 0.3s ease;
+        }
+
+        .api-card:hover .api-icon {
+            transform: scale(1.1);
+        }
+
+       .api-icon.tiktok {
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/056/721/985/small/rectangle-tiktok-icon-logo-symbol-free-png.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+       }
+
+       .api-icon.chatgpt {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMdM9MEQ0ExL1PmInT3U5I8v63YXBEdoIT0Q&s');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+       }
+       .api-icon.gemini {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkTywzUu1R8Yytd4y5qU0vaBIRYcyUCbNIpA&s');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+       }
+
+        .api-card h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .api-card p {
+            color: #4a5568;
+            line-height: 1.7;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .api-link {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .api-card:hover .api-link {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* ===== BOTÓN REGRESAR ===== */
+        .back-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 40px;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: white;
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .footer p {
+            margin: 5px 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        center {
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER DEL PROGRAMADOR -->
+<header class="developer-header">
+    <div class="developer-info">
+        <div class="developer-avatar"></div>
+        <div class="developer-details">
+            <div class="developer-name">Jose Luis Galvan Ramirez</div>
+            <div class="developer-title">TSU EN DESARROLLO DE SOFTWARE MULTIPLATAFORMA</div>
+            <div class="developer-meta">
+                <span>👨‍🏫 Profesor: Leonardo Hernández Peña</span>
+                <span>📘 Asignatura: Aplicaciones Web Orientadas a Servicios</span>
+                <span>📚 Unidad Temática: 2</span>
+                <span>👥 Grupo: DSM-51</span>
+                <span>📅 Cuatrimestre: Enero-Abril 2026</span>
+            </div>
+        </div>
+        <div class="developer-badge">EXAMEN U2</div>
+    </div>
+</header>
+
+        <!-- TÍTULO PRINCIPAL -->
+        <center>
+            <h1 class="main-title">📘 Examen Unidad 2</h1>
+            <h2 class="subtitle">Demostración de Integración de APIs</h2>
+        </center>
+
+        <!-- GRID DE APIs -->
+        <div class="api-grid">
+            <!-- TARJETA TIKTOK -->
+            <a href="api-tiktok.html" class="api-card tiktok">
+                <div class="api-icon tiktok"></div>
+                <h2>🎵 TikTok API</h2>
+                <p>Visualización de videos de TikTok utilizando el embed oficial. Demostración de integración de contenido multimedia.</p>
+                <span class="api-link">Ver Demostración →</span>
+            </a>
+
+            <!-- TARJETA CHATGPT -->
+            <a href="api-chatgpt.html" class="api-card chatgpt">
+                <div class="api-icon chatgpt"></div>
+                <h2>🤖 ChatGPT API</h2>
+                <p>Interacción con el modelo GPT- 4.1 de OpenAI. Conversación en tiempo real con respuestas inteligentes.</p>
+                <span class="api-link">Ver Demostración →</span>
+            </a>
+
+            <!-- TARJETA GEMINI -->
+            <a href="api-gemini.html" class="api-card gemini">
+                <div class="api-icon gemini"></div>
+                <h2>✨ Gemini API</h2>
+                <p>Utilizando el modelo Gemini 2.5 Flash de Google. Procesamiento de lenguaje natural y respuestas contextuales.</p>
+                <span class="api-link">Ver Demostración →</span>
+            </a>
+        </div>
+        <!-- BOTÓN REGRESAR -->
+        <center>
+            <!-- CORREGIDO: El enlace ahora apunta a index.html en lugar de ../index.html -->
+            <a href="index.html" class="back-button">← Regresar</a>
+        </center>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2026 - Examen Unidad 2</p>
+            <p>Desarrollado por: Jose Luis Galvan Ramirez | Matrícula: TIC-320002</p>
+        </footer>
+    </div>
+</body>
+</html>
